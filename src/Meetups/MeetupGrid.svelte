@@ -12,12 +12,12 @@
 
     const dispatch: (name: string, detail?: any) => void = createEventDispatcher();
 
-    export let meetups: IMeetup.IMeetupItem[];
+    export let meetups: IMeetup.IMeetupItems[];
 
     let isFavorite: boolean = false;
-    let filteredMeetups: IMeetup.IMeetupItem[] = [];
+    let filteredMeetups: IMeetup.IMeetupItems[] = [];
 
-    $: filteredMeetups = isFavorite ? meetups.filter((x: IMeetup.IMeetupItem) => x.isFavorite) : meetups;
+    $: filteredMeetups = isFavorite ? meetups.filter((x: IMeetup.IMeetupItems) => x.isFavorite) : meetups;
 
     function selectMeetup(e: any) {
         isFavorite = e.detail === ESelectMeetup.favorite;

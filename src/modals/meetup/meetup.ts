@@ -1,6 +1,6 @@
 import type { EInputType, EButtonType } from './../../enums/meetup';
 
-export interface IMeetupItem {
+export interface IMeetupItems {
     id?: string;
     title: string;
     subTitle: string;

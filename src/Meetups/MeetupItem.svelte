@@ -10,7 +10,7 @@
 
     const dispatch: (name: string, detail?: any) => void = createEventDispatcher();
 
-    export let meetup: IMeetup.IMeetupItem;
+    export let meetup: IMeetup.IMeetupItems;
 
     let buttonALink: IMeetup.IButton = {
         href: `mailto:${meetup.contactEmail}`,
