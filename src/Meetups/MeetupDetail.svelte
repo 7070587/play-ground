@@ -11,17 +11,17 @@
 
     export let id: string;
 
-    let selectedMeetup: IMeetup.IMeetupItem;
+    let selectedMeetup: IMeetup.IMeetupData;
 
     const unsubscribe = meetups.subscribe((items) => {
         selectedMeetup = items.find((x) => x.id === id);
     });
 
-    let buttonCancel: IMeetup.IButton = {
+    let buttonCancel: IMeetup.IButtonSetting = {
         mode: 'outline',
     };
 
-    let buttonALink: IMeetup.IButton = {
+    let buttonALink: IMeetup.IButtonSetting = {
         href: `mailto:${selectedMeetup.contactEmail}`,
     };
 

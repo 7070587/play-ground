@@ -2,7 +2,7 @@
     import type { IMeetup } from './../modals';
     import { EButtonType } from './../enums/meetup';
 
-    export let button: IMeetup.IButton = {
+    export let button: IMeetup.IButtonSetting = {
         type: EButtonType.button,
         href: '',
         mode: '',

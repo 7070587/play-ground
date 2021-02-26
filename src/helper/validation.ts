@@ -3,9 +3,9 @@ export namespace ServiceValidation {
         return value.toString().trim().length === 0;
     }
 
-    export function isEmail(value: string): boolean {
-        const emailRegex: RegExp = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
-        return emailRegex.test(value);
+    export function iscontactEmail(value: string): boolean {
+        const contactEmailRegex: RegExp = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+        return contactEmailRegex.test(value);
     }
 
     export function isImage(value: string): boolean {
