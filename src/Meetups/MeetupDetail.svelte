@@ -22,7 +22,7 @@
     };
 
     let buttonALink: IMeetup.IButtonSetting = {
-        href: `mailto:${selectedMeetup.contactEmail}`,
+        href: `mailto:${selectedMeetup.email}`,
     };
 
     function closeDetail(): void {

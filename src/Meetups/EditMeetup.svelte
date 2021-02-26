@@ -19,7 +19,7 @@
         description: '',
         imageUrl: '',
         address: '',
-        contactEmail: '',
+        email: '',
         isFavorite: false,
     };
 
@@ -66,11 +66,11 @@
         validMessage: 'Please enter a valid image url',
     };
 
-    const contactEmailInput: IMeetup.ITextInputSetting = {
-        id: 'contactEmail',
+    const emailInput: IMeetup.ITextInputSetting = {
+        id: 'email',
         label: 'Contact Email',
         type: EInputType.email,
-        value: meetup.contactEmail,
+        value: meetup.email,
         valid: false,
         validMessage: 'Please enter a valid contact email',
     };
@@ -98,10 +98,10 @@
     $: subTitleInput.valid = !ServiceValidation.isEmpty(meetup.subTitle);
     $: addressInput.valid = !ServiceValidation.isEmpty(meetup.address);
     $: imageUrlInput.valid = ServiceValidation.isImage(meetup.imageUrl);
-    $: contactEmailInput.valid = ServiceValidation.isEmail(meetup.contactEmail);
+    $: emailInput.valid = ServiceValidation.isEmail(meetup.email);
     $: descriptionInput.valid = !ServiceValidation.isEmpty(meetup.description);
     $: isFormValid =
-        titleInput.valid && subTitleInput.valid && addressInput.valid && imageUrlInput.valid && contactEmailInput.valid && descriptionInput.valid;
+        titleInput.valid && subTitleInput.valid && addressInput.valid && imageUrlInput.valid && emailInput.valid && descriptionInput.valid;
 
     function handleTitle(e): void {
         meetup.title = e.target.value;
@@ -119,8 +119,8 @@
         meetup.imageUrl = e.target.value;
     }
 
-    function handleContactEmail(e: any): void {
-        meetup.contactEmail = e.target.value;
+    function handleemail(e: any): void {
+        meetup.email = e.target.value;
     }
 
     function handleDescription(e: any): void {
@@ -178,7 +178,7 @@
         <TextInput textInput={subTitleInput} on:input={handleSubTitle} />
         <TextInput textInput={addressInput} on:input={handleAddress} />
         <TextInput textInput={imageUrlInput} on:input={handleImageUrl} />
-        <TextInput textInput={contactEmailInput} on:input={handleContactEmail} />
+        <TextInput textInput={emailInput} on:input={handleemail} />
         <TextInput textInput={descriptionInput} on:input={handleDescription} />
     </form>
 

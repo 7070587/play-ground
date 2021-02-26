@@ -13,7 +13,7 @@
     export let meetup: IMeetup.IMeetupData;
 
     let buttonALink: IMeetup.IButtonSetting = {
-        href: `mailto:${meetup.contactEmail}`,
+        href: `mailto:${meetup.email}`,
     };
 
     let buttonFavorite: IMeetup.IButtonSetting = {
