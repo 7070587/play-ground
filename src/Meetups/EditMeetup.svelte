@@ -12,7 +12,11 @@
 
     const dispatch: (name: string, detail?: any) => void = createEventDispatcher();
 
+<<<<<<< HEAD
     let meetup: IMeetup.IMeetupItems = {
+=======
+    let meetup: IMeetup.IMeetupData = {
+>>>>>>> fe6748045566ea9bcdfd001cb0f3e464ef870491
         // id: ServiceGenerate.randomId(),
         title: '',
         subTitle: '',
@@ -27,7 +31,11 @@
 
     if (id) {
         const unsubscribe = meetups.subscribe((items) => {
+<<<<<<< HEAD
             const selectedMeetup: IMeetup.IMeetupItems = items.find((x) => x.id === id);
+=======
+            const selectedMeetup: IMeetup.IMeetupData = items.find((x) => x.id === id);
+>>>>>>> fe6748045566ea9bcdfd001cb0f3e464ef870491
             meetup = JSON.parse(JSON.stringify(selectedMeetup));
         });
 
@@ -128,8 +136,13 @@
     }
 
     async function saveMeetup(): Promise<void> {
+<<<<<<< HEAD
         // const meetupData: IMeetup.IMeetupItems = JSON.parse(JSON.stringify(meetup));
         const meetupData: IMeetup.IMeetupItems = meetup;
+=======
+        // const meetupData: IMeetup.IMeetupData = JSON.parse(JSON.stringify(meetup));
+        const meetupData: IMeetup.IMeetupData = meetup;
+>>>>>>> fe6748045566ea9bcdfd001cb0f3e464ef870491
 
         // edit mode
         if (id) {

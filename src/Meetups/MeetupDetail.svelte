@@ -11,7 +11,11 @@
 
     export let id: string;
 
+<<<<<<< HEAD
     let selectedMeetup: IMeetup.IMeetupItems;
+=======
+    let selectedMeetup: IMeetup.IMeetupData;
+>>>>>>> fe6748045566ea9bcdfd001cb0f3e464ef870491
 
     const unsubscribe = meetups.subscribe((items) => {
         selectedMeetup = items.find((x) => x.id === id);

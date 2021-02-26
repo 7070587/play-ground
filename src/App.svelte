@@ -29,8 +29,8 @@
     async function getAPIData(): Promise<void> {
         let res: any = await fetch('https://svelte-meeup-default-rtdb.firebaseio.com/meetups.json').catch((err) => console.error(err));
         if (!res.ok) throw new Error('Fetch data error occured, please try again');
-        let data: IMeetup.IMeetupItems = await res.json();
-        const loadMeetups: IMeetup.IMeetupItems[] = [];
+        let data: IMeetup.IMeetupData = await res.json();
+        const loadMeetups: IMeetup.IMeetupData[] = [];
         for (const key in data) {
             loadMeetups.push({ ...data[key], id: key });
         }
