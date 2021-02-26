@@ -10,18 +10,18 @@
 
     const dispatch: (name: string, detail?: any) => void = createEventDispatcher();
 
-    export let meetup: IMeetup.IMeetupData;
+    export let meetup: IMeetup.IMeetupItem;
 
-    let buttonALink: IMeetup.IButtonSetting = {
+    let buttonALink: IMeetup.IButton = {
         href: `mailto:${meetup.contactEmail}`,
     };
 
-    let buttonFavorite: IMeetup.IButtonSetting = {
+    let buttonFavorite: IMeetup.IButton = {
         mode: 'outline',
         color: 'success',
     };
 
-    let buttonUnfavorite: IMeetup.IButtonSetting = {
+    let buttonUnfavorite: IMeetup.IButton = {
         mode: 'outline',
     };
 

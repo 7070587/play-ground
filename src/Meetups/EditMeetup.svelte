@@ -12,7 +12,7 @@
 
     const dispatch: (name: string, detail?: any) => void = createEventDispatcher();
 
-    let meetup: IMeetup.IMeetupData = {
+    let meetup: IMeetup.IMeetupItem = {
         // id: ServiceGenerate.randomId(),
         title: '',
         subTitle: '',
@@ -27,14 +27,14 @@
 
     if (id) {
         const unsubscribe = meetups.subscribe((items) => {
-            const selectedMeetup: IMeetup.IMeetupData = items.find((x) => x.id === id);
+            const selectedMeetup: IMeetup.IMeetupItem = items.find((x) => x.id === id);
             meetup = JSON.parse(JSON.stringify(selectedMeetup));
         });
 
         unsubscribe();
     }
 
-    const titleInput: IMeetup.ITextInputSetting = {
+    const titleInput: IMeetup.ITextInput = {
         id: 'title',
         label: 'Title',
         value: meetup.title,
@@ -42,7 +42,7 @@
         validMessage: 'Please enter a valid title',
     };
 
-    const subTitleInput: IMeetup.ITextInputSetting = {
+    const subTitleInput: IMeetup.ITextInput = {
         id: 'subTitle',
         label: 'Sub Title',
         value: meetup.subTitle,
@@ -50,7 +50,7 @@
         validMessage: 'Please enter a valid sub title',
     };
 
-    const addressInput: IMeetup.ITextInputSetting = {
+    const addressInput: IMeetup.ITextInput = {
         id: 'address',
         label: 'Address',
         value: meetup.address,
@@ -58,7 +58,7 @@
         validMessage: 'Please enter a valid address',
     };
 
-    const imageUrlInput: IMeetup.ITextInputSetting = {
+    const imageUrlInput: IMeetup.ITextInput = {
         id: 'imageUrl',
         label: 'Image Url',
         value: meetup.imageUrl,
@@ -66,16 +66,16 @@
         validMessage: 'Please enter a valid image url',
     };
 
-    const contactEmailInput: IMeetup.ITextInputSetting = {
+    const contactEmailInput: IMeetup.ITextInput = {
         id: 'contactEmail',
-        label: 'Contact contactEmail',
-        type: EInputType.contactEmail,
+        label: 'Contact Email',
+        type: EInputType.email,
         value: meetup.contactEmail,
         valid: false,
-        validMessage: 'Please enter a valid contact contactEmail',
+        validMessage: 'Please enter a valid contact email',
     };
 
-    const descriptionInput: IMeetup.ITextInputSetting = {
+    const descriptionInput: IMeetup.ITextInput = {
         id: 'description',
         label: 'Description',
         type: EInputType.textarea,
@@ -85,7 +85,7 @@
         validMessage: 'Please enter a valid description',
     };
 
-    let buttonCancel: IMeetup.IButtonSetting = {
+    let buttonCancel: IMeetup.IButton = {
         mode: 'outline',
     };
 
@@ -98,7 +98,7 @@
     $: subTitleInput.valid = !ServiceValidation.isEmpty(meetup.subTitle);
     $: addressInput.valid = !ServiceValidation.isEmpty(meetup.address);
     $: imageUrlInput.valid = ServiceValidation.isImage(meetup.imageUrl);
-    $: contactEmailInput.valid = ServiceValidation.iscontactEmail(meetup.contactEmail);
+    $: contactEmailInput.valid = ServiceValidation.isEmail(meetup.contactEmail);
     $: descriptionInput.valid = !ServiceValidation.isEmpty(meetup.description);
     $: isFormValid =
         titleInput.valid && subTitleInput.valid && addressInput.valid && imageUrlInput.valid && contactEmailInput.valid && descriptionInput.valid;
@@ -119,7 +119,7 @@
         meetup.imageUrl = e.target.value;
     }
 
-    function handlecontactEmail(e: any): void {
+    function handleContactEmail(e: any): void {
         meetup.contactEmail = e.target.value;
     }
 
@@ -128,8 +128,8 @@
     }
 
     async function saveMeetup(): Promise<void> {
-        // const meetupData: IMeetup.IMeetupData = JSON.parse(JSON.stringify(meetup));
-        const meetupData: IMeetup.IMeetupData = meetup;
+        // const meetupData: IMeetup.IMeetupItem = JSON.parse(JSON.stringify(meetup));
+        const meetupData: IMeetup.IMeetupItem = meetup;
 
         // edit mode
         if (id) {
@@ -178,7 +178,7 @@
         <TextInput textInput={subTitleInput} on:input={handleSubTitle} />
         <TextInput textInput={addressInput} on:input={handleAddress} />
         <TextInput textInput={imageUrlInput} on:input={handleImageUrl} />
-        <TextInput textInput={contactEmailInput} on:input={handlecontactEmail} />
+        <TextInput textInput={contactEmailInput} on:input={handleContactEmail} />
         <TextInput textInput={descriptionInput} on:input={handleDescription} />
     </form>
 

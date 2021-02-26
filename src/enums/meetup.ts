@@ -1,7 +1,7 @@
 export enum EInputType {
     number = 'number',
     text = 'text',
-    contactEmail = 'contactEmail',
+    email = 'email',
     password = 'password',
     textarea = 'textarea',
 }
