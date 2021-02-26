@@ -127,7 +127,7 @@
         meetup.description = e.target.value;
     }
 
-    async function saveMeetup(): Promise<void> {
+    async function _saveMeetup(): Promise<void> {
         // const meetupData: IMeetup.IMeetupData = JSON.parse(JSON.stringify(meetup));
         const meetupData: IMeetup.IMeetupData = meetup;
 
@@ -154,7 +154,7 @@
 
             let data: { name: string } = await res.json();
             meetupData.id = data.name;
-            meetups.saveMeetup(meetupData);
+            meetups._saveMeetup(meetupData);
 
             console.log('meetupData => ', meetupData);
         }
@@ -173,7 +173,7 @@
 </script>
 
 <Modals {modalTitle} on:close-modal>
-    <form on:submit|preventDefault={saveMeetup}>
+    <form on:submit|preventDefault={_saveMeetup}>
         <TextInput textInput={titleInput} on:input={handleTitle} />
         <TextInput textInput={subTitleInput} on:input={handleSubTitle} />
         <TextInput textInput={addressInput} on:input={handleAddress} />
@@ -183,7 +183,7 @@
     </form>
 
     <div class="button" slot="footer">
-        <Button on:click={saveMeetup} disabled={!isFormValid}>Save</Button>
+        <Button on:click={_saveMeetup} disabled={!isFormValid}>Save</Button>
 
         {#if id}
             <Button on:click={deleteMeetup}>Delete</Button>

@@ -10,7 +10,7 @@ const meetupsStore = {
     _setMeetup: (meetupsArray: IMeetup.IMeetupData[]) => {
         meetups.set(meetupsArray);
     },
-    saveMeetup: (meetupData: IMeetup.IMeetupData) => {
+    _saveMeetup: (meetupData: IMeetup.IMeetupData) => {
         const newMeetup: IMeetup.IMeetupData = { ...meetupData };
         meetups.update((items: IMeetup.IMeetupData[]): IMeetup.IMeetupData[] => {
             return [newMeetup, ...items];
