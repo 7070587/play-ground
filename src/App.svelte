@@ -41,7 +41,7 @@
         }, 1000);
     }
 
-    function _saveMeetup(): void {
+    function saveMeetup(): void {
         closeModal();
     }
 
@@ -75,7 +75,7 @@
 <main>
     {#if pageAction === EPageAction.overview}
         {#if meetupStatus === EMeetupStatus.edit}
-            <EditMeetup on:save-data={_saveMeetup} on:close-modal={closeModal} {id} />
+            <EditMeetup on:save-data={saveMeetup} on:close-modal={closeModal} {id} />
         {/if}
 
         {#if isLoadong}
