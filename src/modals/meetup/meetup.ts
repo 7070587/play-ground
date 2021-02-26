@@ -7,7 +7,7 @@ export interface IMeetupData {
     description: string;
     imageUrl: string;
     address: string;
-    email: string;
+    contactEmail: string;
 
     isFavorite?: boolean;
 }
