@@ -24,7 +24,7 @@ const meetupsStore = {
             return updatedMeetups;
         });
     },
-    _deleteMeetup: (id: string) => {
+    deleteMeetup: (id: string) => {
         meetups.update((items: IMeetup.IMeetupData[]): IMeetup.IMeetupData[] => {
             return items.filter((x) => x.id !== id);
         });
