@@ -1,6 +1,6 @@
 import type { EInputType, EButtonType } from './../../enums/meetup';
 
-export interface IMeetupItem {
+export interface IMeetupData {
     id?: string;
     title: string;
     subTitle: string;
@@ -12,7 +12,7 @@ export interface IMeetupItem {
     isFavorite?: boolean;
 }
 
-export interface ITextInput {
+export interface ITextInputSetting {
     id: string;
     label: string;
     type?: EInputType; // defualt text
@@ -23,7 +23,7 @@ export interface ITextInput {
     validMessage: string;
 }
 
-export interface IButton {
+export interface IButtonSetting {
     type?: EButtonType; // defualt button
     href?: string;
     mode?: string;

@@ -2,7 +2,7 @@
     import type { IMeetup } from './../modals';
     import { EInputType } from './../enums/meetup';
 
-    export let textInput: IMeetup.ITextInput = {
+    export let textInput: IMeetup.ITextInputSetting = {
         id: '',
         label: '',
         type: EInputType.text,

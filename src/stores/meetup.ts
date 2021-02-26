@@ -5,7 +5,7 @@ import type { IMeetup } from './../modals';
 
 import { ServiceGenerate } from './../helper';
 
-const meetups: Writable<IMeetup.IMeetupItem[]> = writable([
+const meetups: Writable<IMeetup.IMeetupData[]> = writable([
     // {
     //     id: ServiceGenerate.randomId(),
     //     title: 'svelte_title',
@@ -31,34 +31,34 @@ const meetups: Writable<IMeetup.IMeetupItem[]> = writable([
 
 const meetupsStore = {
     subscribe: meetups.subscribe,
-    setMeetup: (meetupsArray: IMeetup.IMeetupItem[]) => {
+    setMeetup: (meetupsArray: IMeetup.IMeetupData[]) => {
         meetups.set(meetupsArray);
     },
-    saveMeetup: (meetupData: IMeetup.IMeetupItem) => {
-        const newMeetup: IMeetup.IMeetupItem = { ...meetupData };
-        meetups.update((items: IMeetup.IMeetupItem[]): IMeetup.IMeetupItem[] => {
+    saveMeetup: (meetupData: IMeetup.IMeetupData) => {
+        const newMeetup: IMeetup.IMeetupData = { ...meetupData };
+        meetups.update((items: IMeetup.IMeetupData[]): IMeetup.IMeetupData[] => {
             return [newMeetup, ...items];
         });
     },
-    updateMeetup: (id: string, meetupData: IMeetup.IMeetupItem) => {
-        meetups.update((items: IMeetup.IMeetupItem[]): IMeetup.IMeetupItem[] => {
+    updateMeetup: (id: string, meetupData: IMeetup.IMeetupData) => {
+        meetups.update((items: IMeetup.IMeetupData[]): IMeetup.IMeetupData[] => {
             const meetupIndex: number = items.findIndex((x) => x.id === id);
-            const updatedMeetups: IMeetup.IMeetupItem[] = [...items];
+            const updatedMeetups: IMeetup.IMeetupData[] = [...items];
             updatedMeetups[meetupIndex] = meetupData;
             return updatedMeetups;
         });
     },
     deleteMeetup: (id: string) => {
-        meetups.update((items: IMeetup.IMeetupItem[]): IMeetup.IMeetupItem[] => {
+        meetups.update((items: IMeetup.IMeetupData[]): IMeetup.IMeetupData[] => {
             return items.filter((x) => x.id !== id);
         });
     },
-    toggleFavorite: (meetup: IMeetup.IMeetupItem) => {
-        meetups.update((items: IMeetup.IMeetupItem[]) => {
-            const updatedMeetup: IMeetup.IMeetupItem = { ...items.find((x) => x.id === meetup.id) };
+    toggleFavorite: (meetup: IMeetup.IMeetupData) => {
+        meetups.update((items: IMeetup.IMeetupData[]) => {
+            const updatedMeetup: IMeetup.IMeetupData = { ...items.find((x) => x.id === meetup.id) };
             updatedMeetup.isFavorite = meetup.isFavorite;
             const meetupIndex: number = items.findIndex((x) => x.id === meetup.id);
-            const updatedMeetups: IMeetup.IMeetupItem[] = [...items];
+            const updatedMeetups: IMeetup.IMeetupData[] = [...items];
             updatedMeetups[meetupIndex] = updatedMeetup;
             return updatedMeetups;
         });
