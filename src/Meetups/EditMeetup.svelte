@@ -4,7 +4,7 @@
 
     import type { IMeetup } from './../modals';
     import { EInputType } from './../enums/meetup';
-    import { ServiceValidation, ServiceGenerate } from './../helper';
+    import { ServiceValidation, } from './../helper';
 
     import TextInput from './../UI/TextInput.svelte';
     import Button from './../UI/Button.svelte';
