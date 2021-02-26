@@ -142,7 +142,7 @@
 
             if (!res.ok) throw new Error('An error occured, please try again');
 
-            meetups._updateMeetup(id, meetupData);
+            meetups.updateMeetup(id, meetupData);
         } else {
             const res: any = await fetch('https://svelte-meeup-default-rtdb.firebaseio.com/meetups.json', {
                 method: 'POST',
