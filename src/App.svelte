@@ -37,7 +37,7 @@
 
         setTimeout(() => {
             isLoadong = false;
-            meetups._setMeetup(loadMeetups);
+            meetups.setMeetup(loadMeetups);
         }, 1000);
     }
 

@@ -7,7 +7,7 @@ const meetups: Writable<IMeetup.IMeetupData[]> = writable([]);
 
 const meetupsStore = {
     subscribe: meetups.subscribe,
-    _setMeetup: (meetupsArray: IMeetup.IMeetupData[]) => {
+    setMeetup: (meetupsArray: IMeetup.IMeetupData[]) => {
         meetups.set(meetupsArray);
     },
     saveMeetup: (meetupData: IMeetup.IMeetupData) => {
