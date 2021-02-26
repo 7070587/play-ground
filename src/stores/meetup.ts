@@ -3,8 +3,6 @@ import type { Writable } from 'svelte/store';
 
 import type { IMeetup } from './../modals';
 
-import { ServiceGenerate } from './../helper';
-
 const meetups: Writable<IMeetup.IMeetupItem[]> = writable([
     // {
     //     id: ServiceGenerate.randomId(),
