@@ -16,7 +16,7 @@ const meetupsStore = {
             return [newMeetup, ...items];
         });
     },
-    updateMeetup: (id: string, meetupData: IMeetup.IMeetupData) => {
+    _updateMeetup: (id: string, meetupData: IMeetup.IMeetupData) => {
         meetups.update((items: IMeetup.IMeetupData[]): IMeetup.IMeetupData[] => {
             const meetupIndex: number = items.findIndex((x) => x.id === id);
             const updatedMeetups: IMeetup.IMeetupData[] = [...items];
